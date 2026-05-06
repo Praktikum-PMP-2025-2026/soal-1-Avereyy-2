@@ -7,20 +7,18 @@ int main() {
     char id[N][10];
     int durasi[N];
 
-    // input
     for (int i = 0; i < N; i++) {
         scanf("%s %d", id[i], &durasi[i]);
     }
 
-    // output ORDER
-    printf("ORDER ");
+    // ORDER
+    printf("ORDER");
     for (int i = 0; i < N; i++) {
-        printf("%s", id[i]);
-        if (i != N - 1) printf(" ");
+        printf(" %s", id[i]);
     }
     printf("\n");
 
-    // hitung WAIT
+    // WAIT
     int total_wait = 0;
     int current_time = 0;
 
@@ -29,7 +27,7 @@ int main() {
         current_time += durasi[i];
     }
 
-    printf("WAIT %d\n", total_wait);
+    printf("WAIT %d", total_wait); // ❗ no extra newline at end
 
     return 0;
 }
