@@ -2,30 +2,31 @@
 
 int main() {
     int N;
+    scanf("%d", &N);
 
-    if (scanf("%d", &N) != 1) return 0;
+    char id[N][10];
+    int durasi[N];
 
-    int arr[N];
     for (int i = 0; i < N; i++) {
-        if (scanf("%d", &arr[i]) != 1) return 0;
+        scanf("%s %d", id[i], &durasi[i]);
     }
 
-    int level = 0;
-    int index = 0;
-
-    while (index < N) {
-        int nodes = 1 << level;  // 2^level TANPA pow()
-
-        printf("LEVEL %d:", level);
-
-        for (int i = 0; i < nodes && index < N; i++) {
-            printf(" %d", arr[index]);
-            index++;
-        }
-
-        if (index < N) printf("\n");  // ❗ no extra newline at end
-        level++;
+    // ORDER
+    printf("ORDER");
+    for (int i = 0; i < N; i++) {
+        printf(" %s", id[i]);
     }
+    printf("\n");
+
+    int total_wait = 0;
+    int current_time = 0;
+
+    for (int i = 0; i < N - 1; i++) { // ❗ stop at N-1
+        total_wait += current_time;
+        current_time += durasi[i];
+    }
+
+    printf("WAIT %d", total_wait);
 
     return 0;
 }
