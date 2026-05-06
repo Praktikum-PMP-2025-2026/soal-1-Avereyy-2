@@ -31,5 +31,5 @@ int main() {
 
     printf("WAIT %d\n", total_wait);
 
-    return 0;
+    return 0; //TES
 }
